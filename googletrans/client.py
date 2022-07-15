@@ -192,9 +192,9 @@ class Translator:
         # not sure
         should_spacing = parsed[1][0][0][3]
         try:
-    		translated_parts = list(map(lambda part: TranslatedPart(part[0], part[1] if len(part) >= 2 else []), parsed[1][0][0][5]))
-		except TypeError: # because of the gender-specific translate results
-    		translated_parts = [ TranslatedPart(parsed[1][0][1][0], [parsed[1][0][0][0], parsed[1][0][1][0]]) ]
+            translated_parts = list(map(lambda part: TranslatedPart(part[0], part[1] if len(part) >= 2 else []), parsed[1][0][0][5]))
+        except TypeError: # because of the gender-specific translate results
+            translated_parts = [ TranslatedPart(parsed[1][0][1][0], [parsed[1][0][0][0], parsed[1][0][1][0]]) ]
         translated = (' ' if should_spacing else '').join(map(lambda part: part.text, translated_parts))
 
         if src == 'auto':
